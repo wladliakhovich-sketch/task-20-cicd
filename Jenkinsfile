@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         IMAGE = "waldis2235/task15-nginx"
-        TAG = "v1"
+        TAG = "${BUILD_NUMBER}"
     }
 
     stages {
