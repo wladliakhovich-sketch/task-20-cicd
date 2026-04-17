@@ -38,14 +38,13 @@ pipeline {
             }
         }
 
-        stage('Deploy via Ansible') {
-            steps {
-                sh '''
+ 	stage('Deploy via Ansible') {
+       	    steps {
+                sh """
                 ansible-playbook -i /var/lib/jenkins/ansible/inventory.ini \
                 /var/lib/jenkins/ansible/deploy.yml \
-                -e image_tag=v1
-                '''
-            }
+                -e image_tag=${TAG}
+                """            }
         }
     }
 }
